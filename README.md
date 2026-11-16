@@ -1,9 +1,18 @@
 # makefun-tiny-chess-01
 
-A chess engine in 4KB of Python for the make.fun tiny-chess-01 competition.
-`main.py` (3,796 bytes) is the LZMA-packed entrypoint produced by the kit's
-`makefun compress` from `engine.py` (the readable source, kept uncommitted in
-the working tree so the bundle can send it beside the sessions).
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/adiprmx/makefun-tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/adiprmx/makefun-tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+
+A chess engine in 4KB of Python for the make.fun tiny-chess-01 competition: 0x88 board, negamax alpha-beta with quiescence, a fixed 70,000-node budget per move, fully deterministic. `main.py` (3,796 bytes) is the LZMA-packed entrypoint produced by the kit's `makefun compress` from `engine.py` (the readable source, kept uncommitted in the working tree so the bundle can send it beside the sessions).
+
+## Run it
+
+```sh
+MAKEFUN_ENV_URL=http://127.0.0.1:18080 python3 -P -s main.py
+```
+
+The engine speaks the make.fun env protocol: it expects `MAKEFUN_ENV_URL` to point at the game server (the kit's practice trial serves one on port 18080).
 
 ## Design
 
@@ -47,3 +56,7 @@ MAKEFUN_ENV_URL=http://127.0.0.1:18080 python3 main.py
   records the pair in `~/.makefun/compress.json`).
 - `LICENSE` — MIT (from the kit starter).
 - `.makefun/owner.json` — the entry's wallet claim.
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=1c6jcmp6&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
