@@ -12,7 +12,7 @@ A chess engine in 4KB of Python for the make.fun tiny-chess-01 competition: 0x88
 MAKEFUN_ENV_URL=http://127.0.0.1:18080 python3 -P -s main.py
 ```
 
-The engine speaks the make.fun env protocol: it expects `MAKEFUN_ENV_URL` to point at the game server (the kit's practice trial serves one on port 18080).
+The engine speaks the make.fun env protocol over `MAKEFUN_ENV_URL`.
 
 ## Design
 
@@ -40,9 +40,7 @@ The engine speaks the make.fun env protocol: it expects `MAKEFUN_ENV_URL` to poi
 ## How to test
 
 ```sh
-# move generation (from the repo root, needs python-chess for the diff test)
-MAKEFUN_ENV_URL=http://127.0.0.1:9 python3 <workdir>/perft5.py
-# play a practice trial against the local env server (kit)
+# play a practice trial against the kit's local env server
 MAKEFUN_ENV_DATA_DIR=<kit>/practice/trial-0/input/env \
 MAKEFUN_STATE_DIR=/tmp/tc-state MAKEFUN_ENV_PORT=18080 \
 node <kit>/program/env/server.mjs &
@@ -52,8 +50,7 @@ MAKEFUN_ENV_URL=http://127.0.0.1:18080 python3 main.py
 ## Files
 
 - `main.py` — the entry (packed, 3,796 bytes).
-- `engine.py` — the readable source (uncommitted; `makefun compress`
-  records the pair in `~/.makefun/compress.json`).
+- `engine.py` — the readable source (uncommitted).
 - `LICENSE` — MIT (from the kit starter).
 - `.makefun/owner.json` — the entry's wallet claim.
 
